@@ -29,3 +29,11 @@ batch_connect:
 #  accounting_id: "account1"
 #  email_on_started: true
 #  native: # ... array of command line arguments ...
+script:
+  native:
+    - "-c"
+    - "<%= num_cores %>"
+    - "--mem"
+    - "<%= num_mem %>GB"
+    - "-p"
+    - "<%= partition %>"
