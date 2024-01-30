@@ -54,6 +54,11 @@ attributes:
     value: "8"
     min: 1
     id: 'num_mem'
+  extra_modules:
+    widget: "text_field"
+    label: "Additional modules"
+    value: ""
+    help: "Additional modules to load when loading the notebook"
   num_days:
     widget: "number_field"
     label: "Runtime in Days"
@@ -72,5 +77,6 @@ form:
   - extra_jupyter_args
   - num_cores
   - num_mem
+  - extra_modules
   - num_days
   - partition
