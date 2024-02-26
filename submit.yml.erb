@@ -39,3 +39,7 @@ script:
     - "<%= partition %>"
     - "-t"
     - "<%= num_days.to_i %>-00"
+    <%- unless extra_slurm.empty? -%>
+    - "<%= extra_slurm %>"
+    <%- end -%>
+

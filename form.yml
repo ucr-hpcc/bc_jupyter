@@ -57,8 +57,11 @@ attributes:
   extra_modules:
     widget: "text_field"
     label: "Additional modules"
+    pattern: "[a-zA-Z0-9/.\\-+_ ]*"
     value: ""
-    help: "Additional modules to load when loading the notebook"
+    help: |
+      Additional modules to load when loading the notebook, separated by a space.<br/>
+      eg. 'boost/1.80.1 cuda/11.8 vmd/1.9.3'
   num_days:
     widget: "number_field"
     label: "Runtime in Days"
@@ -72,6 +75,12 @@ attributes:
       - "epyc"
       - "intel"
       - "batch"
+      - "gpu"
+  extra_slurm:
+    widget: "text_field"
+    label: "Additional Slurm Arguments"
+    value: ""
+    help: "Additional arguments to pass to slurm. eg '--gres=gpu:1'"
 form:
   - modules
   - extra_jupyter_args
@@ -80,3 +89,4 @@ form:
   - extra_modules
   - num_days
   - partition
+  - extra_slurm
