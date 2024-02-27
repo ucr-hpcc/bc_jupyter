@@ -68,7 +68,7 @@ attributes:
     pattern: "[0-9:-]*"
     value: "2-00:00:00"
     help: |
-      The runtime for a job. In the format of DD-HH:MM:SS. Eg. 2 days, 13 hours, 37 minutes, 42 seconds would be "2-13:37:42".<br/>
+      In the format of DD-HH:MM:SS. Eg. 2 days, 13 hours, 37 minutes, 42 seconds would be "2-13:37:42".<br/>
       Max runtime is determined by the queue, see <a href="https://hpcc.ucr.edu/manuals/hpc_cluster/queue/" target="_blank">Queue Policies</a> for more details.
   partition:
     widget: select
