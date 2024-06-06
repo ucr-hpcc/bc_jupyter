@@ -1,10 +1,23 @@
 #!/usr/bin/env bash
 
+<%
+
+working_dir = Pathname.new(context.working_dir)
+
+# Ensure that code-server always starts up in either a user defined directory or the home directory.
+if ! working_dir.exist?
+    working_dir = Pathname.new(ENV['HOME'])
+elsif working_dir.file?
+    working_dir = working_dir.parent
+end
+
+%>
+
 # Benchmark info
 echo "TIMING - Starting main script at: $(date)"
 
 # Set working directory to home directory
-cd "${HOME}"
+cd "<%= working_dir.to_s %>"
 
 #
 # Start Jupyter Notebook Server
@@ -28,4 +41,4 @@ echo "TIMING - Starting jupyter at: $(date)"
 
 # Launch the Jupyter Notebook Server
 set -x
-jupyter lab --config="${CONFIG_FILE}" --no-browser <%= context.extra_jupyter_args %>
+jupyter lab --config="${CONFIG_FILE}" --no-browser <%= context.extra_jupyter_args %> --notebook-dir="<%= working_dir.to_s %>"

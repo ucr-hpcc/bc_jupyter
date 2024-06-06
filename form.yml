@@ -85,9 +85,16 @@ attributes:
     label: "Additional Slurm Arguments"
     value: ""
     help: "Additional arguments to pass to slurm. eg '--gres=gpu:1' will be needed if running on the GPU partition."
+  working_dir:
+    label: "Working Directory"
+    data-filepicker: true
+    data-target-file-type: dirs
+    readonly: false
+    help: "Select your project directory; defaults to your home directory"
 form:
   - modules
   - extra_jupyter_args
+  - working_dir
   - num_cores
   - num_mem
   - extra_modules
