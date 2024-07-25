@@ -80,6 +80,9 @@ attributes:
 #      - "intel"
 #      - "batch"
 #      - "gpu"
+  auto_queues:
+    help: |
+      For more details on our Queue Policies, see our <a href="https://hpcc.ucr.edu/manuals/hpc_cluster/queue/" target="_blank">Queue Policies</a> page.
   extra_slurm:
     widget: "text_field"
     label: "Additional Slurm Arguments"
