@@ -36,7 +36,7 @@ script:
     - "--mem"
     - "<%= num_mem %>GB"
     - "-p"
-    - "<%= partition %>"
+    - "<%= auto_queues %>"
     - "-t"
     - "<%= runtime %>"
     <%- unless extra_slurm.empty? -%>
