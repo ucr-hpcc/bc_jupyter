@@ -29,6 +29,15 @@ batch_connect:
 #  accounting_id: "account1"
 #  email_on_started: true
 #  native: # ... array of command line arguments ...
+
+<%-
+  extra_slurm_array = if extra_slurm.empty?
+                      else
+                        extra_slurm.split(' ')
+                      end
+
+-%>
+
 script:
   native:
     - "-c"
@@ -39,7 +48,10 @@ script:
     - "<%= auto_queues %>"
     - "-t"
     - "<%= runtime %>"
-    <%- unless extra_slurm.empty? -%>
-    - "<%= extra_slurm %>"
+    <%- extra_slurm_array.each do |arg| -%>
+    - "<%= arg %>"
     <%- end -%>
+#    <%- unless extra_slurm.empty? -%>
+#    - "<%= extra_slurm %>"
+#    <%- end -%>
 
