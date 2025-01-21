@@ -32,6 +32,7 @@ batch_connect:
 
 <%-
   extra_slurm_array = if extra_slurm.empty?
+                        nil
                       else
                         extra_slurm.split(' ')
                       end
@@ -48,8 +49,10 @@ script:
     - "<%= auto_queues %>"
     - "-t"
     - "<%= runtime %>"
+    <%- unless extra_slurm_array.nil? -%>
     <%- extra_slurm_array.each do |arg| -%>
     - "<%= arg %>"
+    <%- end -%>
     <%- end -%>
 #    <%- unless extra_slurm.empty? -%>
 #    - "<%= extra_slurm %>"
