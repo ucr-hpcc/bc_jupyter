@@ -3,4 +3,17 @@
   <button class="btn btn-primary" type="submit">
     <i class="fa fa-eye"></i> Connect to Jupyter
   </button>
+
+  <br/><br/>
+  <p>
+  To access from your local computer, you can run the following in a terminal on your <b>local</b> machine:<br/>
+  <code>
+  ssh -NL <%= port %>:<%= host %>:<%= port %> <%= CurrentUser.name %>@cluster.hpcc.ucr.edu
+  </code>
+  <br/>
+  You can connect at the following URL:</br>
+  <code>http://localhost:<%= port %>/node/<%= host %>/<%= port %>/lab</code><br/>
+  If a password is requested, use <code><%= password %></code>
+  </p>
+
 </form>
